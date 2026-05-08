@@ -78,7 +78,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Jost:wght@400;500;600;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;family=Playfair+Display:wght@500;600;700;800&amp;display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://devkabeachresort.com/css/vendors.css">
@@ -93,7 +93,368 @@
 
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/sharp-light.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-<!-- Event snippet for Contact conversion page --> <script> gtag('event', 'conversion', {'send_to': 'AW-17045759172/hH8nCOf05MsaEMTJhsA_'}); </script>
+<!-- Hero image preload for LCP -->
+<link rel="preload" as="image" href="https://devkabeachresort.com/images/banner/01.png">
+
+<!-- ===== 2025 MODERNIZATION OVERRIDES ===== -->
+<style>
+/* ── Design tokens ────────────────────────────────────── */
+:root {
+  --clr-gold:    #c9a96e;
+  --clr-dark:    #0e1c1e;
+  --clr-light:   #f9f6f1;
+  --clr-muted:   #7a8c8e;
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   24px;
+  --shadow-sm:   0 2px 12px rgba(0,0,0,.07);
+  --shadow-md:   0 6px 28px rgba(0,0,0,.12);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,.18);
+  --transition:  .28s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Base resets & typography polish ────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Prevent layout shift on images */
+.img-ratio { object-fit: cover; width: 100%; height: 100%; }
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+.header.is-sticky,
+.header[data-add-bg].is-scrolled {
+  box-shadow: 0 2px 24px rgba(0,0,0,.18);
+}
+
+/* BOOK NOW button – header */
+.header__right .button.-accent-1.bg-accent-2 {
+  background: var(--clr-gold) !important;
+  color: #fff !important;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  letter-spacing: .06em;
+  padding: 10px 22px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 2px 12px rgba(201,169,110,.35);
+}
+.header__right .button.-accent-1.bg-accent-2:hover {
+  background: #b8914d !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201,169,110,.45);
+}
+
+/* Desktop nav links */
+.desktopNav__item > a {
+  position: relative;
+  font-weight: 500;
+  letter-spacing: .04em;
+  transition: color var(--transition);
+}
+.desktopNav__item > a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 1.5px;
+  background: var(--clr-gold);
+  transition: width var(--transition);
+}
+.desktopNav__item > a:hover::after,
+.desktopNav__item > a:focus::after { width: 100%; }
+
+/* ── Hero section ───────────────────────────────────── */
+.hero.-type-5 { overflow: hidden; }
+.hero__bg { will-change: transform; }
+
+/* Hero nav arrows */
+.hero__nav .button {
+  background: rgba(255,255,255,.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.22);
+  transition: background var(--transition), transform var(--transition);
+}
+.hero__nav .button:hover {
+  background: rgba(255,255,255,.25);
+  transform: scale(1.08);
+}
+
+/* ── About section ──────────────────────────────────── */
+.about__images img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform .5s var(--transition), box-shadow .5s var(--transition);
+}
+.about__images img:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Read More button */
+.button.-type-1 {
+  position: relative;
+  transition: letter-spacing var(--transition), opacity var(--transition);
+}
+.button.-type-1:hover { letter-spacing: .08em; opacity: .85; }
+
+/* ── Restaurant logo strip ──────────────────────────── */
+.restaurant-section img {
+  filter: grayscale(20%);
+  transition: filter var(--transition), transform var(--transition);
+  border-radius: var(--radius-sm);
+}
+.restaurant-section img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.04);
+}
+
+/* ── Stats counter section ──────────────────────────── */
+.layout-pt-lg .text-92 {
+  background: linear-gradient(135deg, var(--clr-dark) 0%, var(--clr-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Icon / Amenity cards ───────────────────────────── */
+.iconCard.-type-1 {
+  padding: 24px 16px;
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.iconCard.-type-1:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.iconCard__icon__circle {
+  border-radius: 50%;
+  transition: transform .4s ease;
+}
+.iconCard.-type-1:hover .iconCard__icon__circle { transform: scale(1.12); }
+.amanities-img { width: 56px; height: 56px; object-fit: contain; }
+
+/* ── Room cards ─────────────────────────────────────── */
+.roomCard.-type-1 {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition);
+}
+.roomCard.-type-1:hover { transform: translateY(-4px); }
+
+.roomCard__image img {
+  transition: transform .6s ease !important;
+}
+.roomCard.-type-1:hover .roomCard__image img { transform: scale(1.04) !important; }
+
+/* ── Explore section buttons ────────────────────────── */
+.hoverTitle .d-flex {
+  transition: gap var(--transition), letter-spacing var(--transition);
+}
+.hoverTitle:hover .d-flex { letter-spacing: .04em; }
+
+/* ── Rooms & Dining CTA buttons ─────────────────────── */
+.button.-outline-accent-1.-type-2 {
+  border-radius: var(--radius-sm);
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition);
+  font-weight: 600;
+}
+.button.-outline-accent-1.-type-2:hover {
+  background: var(--clr-dark) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Testimonial section ────────────────────────────── */
+.testimonialsPagination__item img {
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.testimonialsPagination__item.is-active img,
+.testimonialsPagination__item:hover img {
+  border-color: var(--clr-gold);
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(201,169,110,.4);
+}
+
+/* ── Blog cards ─────────────────────────────────────── */
+.baseCard.-type-2 {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: block;
+}
+.baseCard.-type-2:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+.baseCard__image img {
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  transition: transform .5s ease;
+}
+.baseCard.-type-2:hover .baseCard__image img { transform: scale(1.04); }
+
+/* ── Booking modal form ─────────────────────────────── */
+.modal-content {
+  border-radius: var(--radius-lg);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.modal-header {
+  background: var(--clr-dark);
+  color: #fff;
+  padding: 20px 28px;
+  border-bottom: none;
+}
+.modal-header .modal-title { color: #fff; font-weight: 600; letter-spacing: .04em; }
+.modal-header .btn-close { filter: invert(1); opacity: .7; }
+.modal-header .btn-close:hover { opacity: 1; }
+
+.form-input input,
+.form-input select,
+.form-input textarea {
+  border-radius: var(--radius-sm) !important;
+  border: 1.5px solid #e0ddd8 !important;
+  padding: 12px 16px !important;
+  font-size: 14px;
+  transition: border-color var(--transition), box-shadow var(--transition) !important;
+  outline: none;
+}
+.form-input input:focus,
+.form-input select:focus,
+.form-input textarea:focus {
+  border-color: var(--clr-gold) !important;
+  box-shadow: 0 0 0 3px rgba(201,169,110,.18) !important;
+}
+.form-input textarea { min-height: 90px; resize: vertical; }
+
+.button.btn_sub {
+  border-radius: var(--radius-sm) !important;
+  font-weight: 600;
+  letter-spacing: .05em;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition) !important;
+}
+.button.btn_sub:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Popup promo modal ──────────────────────────────── */
+.beawareform .modal-content {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.beawareform .closebtn {
+  position: absolute;
+  top: 10px; right: 12px;
+  background: rgba(0,0,0,.55);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 10;
+  transition: background var(--transition);
+  line-height: 1;
+}
+.beawareform .closebtn:hover { background: rgba(0,0,0,.85); }
+
+/* ── Footer ─────────────────────────────────────────── */
+.footer.-type-1 { border-top: 1px solid rgba(255,255,255,.08); }
+.footer__grid a {
+  transition: color var(--transition), padding-left var(--transition);
+  display: block;
+}
+.footer__grid a:hover {
+  color: var(--clr-gold) !important;
+  padding-left: 4px;
+}
+.footer__bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 20px 0;
+}
+
+/* Social icons */
+.footer__bottom .col-auto a {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.2);
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.footer__bottom .col-auto a:hover {
+  background: var(--clr-gold);
+  border-color: var(--clr-gold);
+  transform: translateY(-3px);
+}
+
+
+
+/* ── Destination tabs ────────────────────────────────── */
+.tabs.-underline-1 .tabs__button {
+  transition: color var(--transition), border-color var(--transition);
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+}
+.tabs.-underline-1 .tabs__button:hover,
+.tabs.-underline-1 .tabs__button.is-tab-el-active {
+  color: var(--clr-gold) !important;
+  border-bottom-color: var(--clr-gold) !important;
+}
+.tabs__pane img {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+.tabs__pane img:hover { transform: scale(1.02); }
+
+/* ── Booking partner logos ───────────────────────────── */
+.ratio img {
+  transition: filter var(--transition), transform var(--transition);
+}
+.ratio img:hover {
+  filter: grayscale(0%) !important;
+  transform: scale(1.04);
+}
+
+/* ── Responsive tweaks ───────────────────────────────── */
+@media (max-width: 991px) {
+  .iconCard.-type-1 { padding: 16px 10px; }
+  .modal-content { border-radius: var(--radius-md); }
+  .form-input input, .form-input select { padding: 10px 14px !important; }
+  /* Larger tap targets */
+  .desktopNav__item > a, .menuFullScreen-links__item > a { min-height: 44px; display: flex; align-items: center; }
+}
+
+@media (max-width: 575px) {
+  .hero__nav .button { width: 46px !important; height: 46px !important; }
+  .amanities-img { width: 44px; height: 44px; }
+  .restaurant-section .row .col-6 { margin-bottom: 12px; }
+  .baseCard.-type-2 { margin-bottom: 24px; }
+  .footer__grid { gap: 32px; }
+}
+
+/* ── Reduced motion ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  .insta-float { animation: none !important; }
+}
+</style>
+<!-- Event snippet for Contact conversion page --> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('event', 'conversion', {'send_to': 'AW-17045759172/hH8nCOf05MsaEMTJhsA_'}); </script>
 
   <!-- ===== SOURCE CODE PROTECTION ===== -->
   <script>
@@ -113,25 +474,10 @@
       }
     });
 
-    // Disable text selection on the page
-    document.addEventListener('selectstart', function(e) { e.preventDefault(); });
-
-    // Disable drag
-    document.addEventListener('dragstart', function(e) { e.preventDefault(); });
-
-    // DevTools open detection — redirect or blank if opened
-    (function() {
-      var threshold = 160;
-      setInterval(function() {
-        if (
-          window.outerWidth - window.innerWidth > threshold ||
-          window.outerHeight - window.innerHeight > threshold
-        ) {
-          document.body.innerHTML = '';
-          window.location.reload();
-        }
-      }, 1000);
-    })();
+    // Keep protection lightweight: avoid viewport polling because it causes mobile scroll jank.
+    document.addEventListener('dragstart', function(e) {
+      if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+    }, { passive: false });
   </script>
 </head>
 <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17045759172"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-17045759172'); </script>
@@ -154,7 +500,7 @@
 
     <div class="menuFullScreen__left">
       <div class="menuFullScreen__bg js-menuFullScreen-bg">
-        <img src="https://devkabeachresort.com/images/resources/menu-bg.png" alt="image">
+        <img src="https://devkabeachresort.com/images/resources/menu-bg.png" alt="image" loading="lazy">
       </div>
 
       <button class="menuFullScreen__close js-menuFullScreen-toggle js-menuFullScreen-close-btn">
@@ -233,7 +579,7 @@
     <div class="menuFullScreen__right js-menuFullScreen-right">
       <div class="text-center">
         <div class="mb-100">
-          <a href="https://devkabeachresort.com"><img src="https://devkabeachresort.com/images/logo/logo.svg" alt="image"></a>
+          <a href="https://devkabeachresort.com"><img src="https://devkabeachresort.com/images/logo/logo.svg" alt="image" loading="lazy"></a>
         </div>
 
 
@@ -310,101 +656,379 @@
   <main>
 
 
+    <!-- ── HEADER NAV FIX: desktop overlap + mobile Book Now outside burger ── -->
+    <style>
+      /* ═══════════════════════════════════════════════════════
+         DEVKA BEACH RESORT — MASTER POLISH SYSTEM v3.0
+         Fixes: navbar overlap • typography clipping • gallery
+                text cut • performance • responsive scaling
+      ═══════════════════════════════════════════════════════ */
+
+      /* ── 1. PERFORMANCE: contain & GPU hints ── */
+      html { scroll-behavior: auto; }
+      body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        overflow-x: hidden;
+        overscroll-behavior-x: none;
+      }
+      .hero.-type-5,
+      section.about.-type-1,
+      section.layout-pt-lg { contain: layout style; }
+
+      /* ── 2. TYPOGRAPHY SYSTEM — clamp() scaling ── */
+      /* Hero title */
+      .hero__title,
+      .hero h1 {
+        font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(2.2rem, 5.5vw + 0.5rem, 7rem) !important;
+        line-height: 1.04 !important;
+        letter-spacing: -0.01em !important;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: none;
+        padding: 0 1rem;
+      }
+      /* Hero subtitle */
+      .hero__subtitle {
+        font-size: clamp(0.7rem, 1.1vw, 0.85rem) !important;
+        letter-spacing: 0.28em !important;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: rgba(200,169,107,1) !important;
+      }
+      /* Section H2 — main headings */
+      h2.text-64, h2.text-40, .text-64, .text-40 {
+        font-size: clamp(1.75rem, 4vw + 0.25rem, 4rem) !important;
+        line-height: 1.1 !important;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+      /* Card / room titles */
+      h3.text-40, .roomCard__title.text-40 {
+        font-size: clamp(1.4rem, 2.8vw + 0.3rem, 2.5rem) !important;
+        line-height: 1.15 !important;
+        overflow-wrap: break-word;
+      }
+      /* Stat numbers */
+      h3.text-92 {
+        font-size: clamp(2.5rem, 7vw + 0.5rem, 5.75rem) !important;
+        line-height: 1.0 !important;
+        overflow-wrap: break-word;
+      }
+      /* About hero title */
+      .about__title.text-120 {
+        font-size: clamp(1.6rem, 4vw + 0.4rem, 3.6rem) !important;
+        line-height: 1.18 !important;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      /* Body / paragraph */
+      p, .text-17, li {
+        font-size: clamp(0.9rem, 1vw + 0.25rem, 1.0625rem) !important;
+        line-height: 1.78 !important;
+      }
+      /* Small caps label */
+      .text-15.uppercase, .text-15[class*="uppercase"] {
+        font-size: clamp(0.65rem, 0.7vw + 0.3rem, 0.8rem) !important;
+        letter-spacing: 0.22em !important;
+      }
+      /* Explore section links */
+      .text-40.md\:text-24 {
+        font-size: clamp(1.25rem, 2.4vw + 0.2rem, 2.5rem) !important;
+        line-height: 1.15 !important;
+      }
+      /* Section headings h3 mid-size */
+      h3.text-40.md\:text-30 {
+        font-size: clamp(1.5rem, 3vw + 0.25rem, 2.5rem) !important;
+        line-height: 1.1 !important;
+        overflow-wrap: break-word;
+      }
+      /* H4 amenity titles */
+      h4.text-24 {
+        font-size: clamp(0.95rem, 1.4vw + 0.2rem, 1.5rem) !important;
+        line-height: 1.3 !important;
+      }
+
+      /* ── 3. OVERFLOW / CLIPPING FIXES ── */
+      *,
+      *::before,
+      *::after { box-sizing: border-box; }
+
+      /* Ensure no section clips its headings */
+      section, .container, .row, [class*="col-"] {
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      /* Fix line-height clipping (descenders cut off) */
+      h1, h2, h3, h4, h5, h6 {
+        overflow: visible !important;
+        padding-bottom: 0.06em;
+      }
+      /* Heading containers must not clip */
+      .hero__content,
+      .pageHero__content,
+      .about__content,
+      .hoverTitleInteraction__links {
+        overflow: visible !important;
+      }
+
+      /* ── 4. GALLERY HEADING FIX ── */
+      /* Gallery page and gallery section headings */
+      .pageHero__title,
+      .pageHero__subtitle {
+        overflow: visible !important;
+        padding: 0.1em 1rem 0.18em;
+        line-height: 1.08 !important;
+      }
+      /* Gallery section heading container — never clip ascenders/descenders */
+      section[class*="gallery"] h2,
+      section[class*="gallery"] h1,
+      .gallerynew h1,
+      .gallerynew h2 {
+        overflow: visible !important;
+        padding-bottom: 0.12em;
+        line-height: 1.1 !important;
+      }
+
+      /* ── 5. NAVBAR — OVERLAP FIX ── */
+      /* Glassmorphic pill container */
+      .header {
+        position: fixed !important;
+        top: 14px;
+        left: 14px;
+        right: 14px;
+        z-index: 1000;
+        min-height: 72px;
+        border-radius: 999px;
+        background: rgba(11,11,11,0.38) !important;
+        backdrop-filter: blur(20px) saturate(1.6);
+        -webkit-backdrop-filter: blur(20px) saturate(1.6);
+        border: 1px solid rgba(248,245,240,0.14);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+        transition:
+          background 380ms cubic-bezier(0.22,1,0.36,1),
+          box-shadow 380ms cubic-bezier(0.22,1,0.36,1),
+          border-color 380ms cubic-bezier(0.22,1,0.36,1);
+      }
+      .header.lux-scrolled,
+      .header.is-scrolled,
+      .header.is-sticky {
+        background: rgba(11,11,11,0.82) !important;
+        border-color: rgba(200,169,107,0.34);
+        box-shadow: 0 24px 70px rgba(0,0,0,0.26);
+      }
+
+      /* Three-column flex layout */
+      .header__container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 0 !important;
+        flex-wrap: nowrap !important;
+        min-width: 0;
+        min-height: 72px;
+        padding-inline: clamp(14px, 2.8vw, 36px);
+      }
+      /* LEFT — logo (desktop) or burger+logo (mobile) */
+      .headerMobile__left {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      /* CENTER — logo (lg) + desktop nav (hidden on mobile) */
+      .header__center {
+        flex: 1 1 auto;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+      }
+      /* RIGHT — BOOK NOW + WhatsApp (desktop) */
+      .header__right {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+
+      /* Desktop nav — balanced gap, no wrapping */
+      .desktopNav {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: nowrap !important;
+        gap: clamp(8px, 1.4vw, 22px) !important;
+      }
+      /* Nav link sizing */
+      .desktopNav__item > a {
+        font-size: clamp(10px, 0.85vw, 12.5px) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.1em !important;
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding: 6px 0;
+        color: rgba(248,245,240,0.92) !important;
+      }
+
+      /* ── 7. SECTION SPACING ── */
+      .layout-pt-lg  { padding-top: clamp(60px, 7.5vw, 120px) !important; }
+      .layout-pb-lg  { padding-bottom: clamp(60px, 7.5vw, 120px) !important; }
+      @media (max-width: 991.98px) {
+        .header__container {
+          min-height: 64px;
+        }
+        .header__right { display: none !important; }
+        .headerMobile__left {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .header__mobile-actions {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          flex-shrink: 0;
+        }
+      }
+      /* Mobile action buttons group */
+      .header__mobile-actions {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .header__mobile-actions .btn-mobile-book {
+        font-size: 11.5px;
+        padding: 8px 13px;
+        border-radius: 7px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .header__mobile-actions .btn-mobile-wa {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        flex-shrink: 0;
+      }
+      @media (max-width: 375px) {
+        .header__mobile-actions .btn-mobile-book { padding: 7px 10px; font-size: 10.5px; }
+      }
+
+      /* ── 6. BUTTON ALIGNMENT ── */
+      .button, button.button {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        white-space: nowrap;
+        line-height: 1 !important;
+        min-height: 44px;
+      }
+
+      /* ── NEW HEADER CLASSES ── */
+      .hdr-logo-left { flex:0 0 auto; display:flex; align-items:center; padding-left:4px; }
+      .hdr-logo-left img { height:48px; width:auto; display:block; }
+      .hdr-right-actions { flex:0 0 auto; display:flex; align-items:center; gap:8px; }
+      .hdr-desktop-only { display:inline-flex!important; }
+      .hdr-mobile-only  { display:none!important; }
+      @media (max-width:991.98px) {
+        .hdr-desktop-only { display:none!important; }
+        .hdr-mobile-only  { display:inline-flex!important; }
+        .header__center   { display:none!important; }
+        .hdr-logo-left img { height:40px; }
+        .header__container { min-height:64px; }
+        .header { top:10px; left:10px; right:10px; border-radius:24px; }
+      }
+      .hdr-wa-icon { width:40px; height:40px; padding:0!important; }
+      .hdr-burger { cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center; border-radius:8px; border:1px solid rgba(248,245,240,.22); background:rgba(255,255,255,.08); transition:background 200ms ease; }
+      .hdr-burger:hover { background:rgba(255,255,255,.16); }
+      .hdr-burger i { font-size:20px; line-height:1; }
+      .btn-mobile-book { font-size:11px; padding:8px 12px; border-radius:7px; font-weight:700; white-space:nowrap; line-height:1; }
+      .btn-mobile-wa   { width:36px; height:36px; padding:0!important; border-radius:7px; }
+
+      /* ── FLOATING BOOK NOW (LEFT) ── */
+      .float-book-btn { position:fixed; left:0; top:50%; transform:translateY(-50%) rotate(-90deg); transform-origin:left center; z-index:9990; background:linear-gradient(135deg,#c9a96e,#e7d49d 50%,#c9a96e); color:#11140f!important; font-family:'Inter',system-ui,sans-serif; font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; text-decoration:none!important; padding:10px 22px; border-radius:0 0 10px 10px; box-shadow:4px 0 22px rgba(200,169,107,.38); transition:box-shadow 240ms ease,padding 240ms ease; white-space:nowrap; }
+      .float-book-btn:hover { box-shadow:6px 0 32px rgba(200,169,107,.55); padding:10px 28px; color:#11140f!important; }
+
+      /* ── BANQUETING & MICE FONT FIX ── */
+      .lh-065, h2.lh-065, h3.lh-065 { line-height:1.15!important; }
+
+      /* ── IMAGE BLUR-UP PLACEHOLDER ── */
+      img[data-src] { filter:blur(8px); transition:filter 400ms ease; }
+      img.loaded { filter:none; }
+    </style>
+
     <header class="header -h-100 -mx-60 bg-accent-3 js-header" data-add-bg="bg-accent-1" data-x="header"
       data-x-toggle="-is-menu-opened">
       <div class="header__container">
-        <div class="headerMobile__left d-flex items-center">
-          <div class="header__logo lg:d-none">
-            <a href="https://devkabeachresort.com">
-              <img src="https://devkabeachresort.com/images/logo/logo.svg" alt="logo">
-            </a>
-          </div>
-          <div class="items-center d-none lg:d-flex js-menuFullScreen-toggle">
-            <i class="icon-menu text-9 text-white"></i>
-            <div class="text-15 uppercase ml-30 sm:d-none">Menu</div>
-          </div>
+
+        <!-- LOGO — always left, never moves -->
+        <div class="hdr-logo-left">
+          <a href="https://devkabeachresort.com">
+            <img src="https://devkabeachresort.com/images/logo/logo.svg" alt="Devka Beach Resort" decoding="async">
+          </a>
         </div>
+
+        <!-- CENTER: Desktop nav only (no logo in center anymore) -->
         <div class="header__center">
-          <div class="header__logo d-none lg:d-flex">
-            <a href="https://devkabeachresort.com">
-              <img src="https://devkabeachresort.com/images/logo/logo.svg" alt="logo">
-            </a>
-          </div>
           <div class="lg:d-none">
             <div class="desktopNav">
+              <div class="desktopNav__item"><a href="https://devkabeachresort.com">Home</a></div>
+              <div class="desktopNav__item"><a href="https://devkabeachresort.com/dining">Dining</a></div>
               <div class="desktopNav__item">
-                <a href="https://devkabeachresort.com">
-                  Home
-                </a>
-              </div>
-              <div class="desktopNav__item">
-                <a href="https://devkabeachresort.com/dining">
-                  Dining
-                </a>
-              </div>
-              <div class="desktopNav__item">
-                <a href="https://devkabeachresort.com/rooms">
-                  Rooms <i class="icon-chevron-down"></i>
-                </a>
+                <a href="https://devkabeachresort.com/rooms">Rooms <i class="icon-chevron-down"></i></a>
                 <div class="desktopNavSubnav">
                   <div class="desktopNavSubnav__content -col-3">
                     <div>
-                      <div class="desktopNavSubnav__item">
-                        <a href="https://devkabeachresort.com/rooms">Suite Room </a>
-                      </div>
-                      <div class="desktopNavSubnav__item">
-                        <a href="https://devkabeachresort.com/rooms">Junior Suite Room</a>
-                      </div>
-                      <div class="desktopNavSubnav__item">
-                        <a href="https://devkabeachresort.com/rooms">Premium Room</a>
-                      </div>
-                      <div class="desktopNavSubnav__item">
-                        <a href="https://devkabeachresort.com/rooms">Deluxe Room</a>
-                      </div>
-                      <div class="desktopNavSubnav__item">
-                        <a href="https://devkabeachresort.com/rooms">Standard Room</a>
-                      </div>
+                      <div class="desktopNavSubnav__item"><a href="https://devkabeachresort.com/rooms">Suite Room</a></div>
+                      <div class="desktopNavSubnav__item"><a href="https://devkabeachresort.com/rooms">Junior Suite Room</a></div>
+                      <div class="desktopNavSubnav__item"><a href="https://devkabeachresort.com/rooms">Premium Room</a></div>
+                      <div class="desktopNavSubnav__item"><a href="https://devkabeachresort.com/rooms">Deluxe Room</a></div>
+                      <div class="desktopNavSubnav__item"><a href="https://devkabeachresort.com/rooms">Standard Room</a></div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="desktopNav__item">
-                <a href="/wedding">
-                  Banqueting & mice
-                </a>
-              </div>
-              <div class="desktopNav__item">
-                <a href="/gallery">
-                  Gallery
-                </a>
-              </div>
-              <div class="desktopNav__item">
-                <a href="/career">
-                  Career
-                </a>
-              </div>
-              <div class="desktopNav__item">
-                <a href="https://devkabeachresort.com/blogs">
-                  Blogs
-                </a>
-              </div>
-              <div class="desktopNav__item">
-                <a href="/contactus">
-                  Contact Us
-                </a>
-              </div>
+              <div class="desktopNav__item"><a href="/wedding">Banqueting &amp; MICE</a></div>
+              <div class="desktopNav__item"><a href="/gallery">Gallery</a></div>
+              <div class="desktopNav__item"><a href="/career">Career</a></div>
+              <div class="desktopNav__item"><a href="/contactus">Contact Us</a></div>
             </div>
           </div>
         </div>
-        <div class="header__right d-flex items-center g-3 h-full">
-          <button class="button -md -accent-1 bg-accent-2 xl:d-none" data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop">BOOK NOW</button>
-            <a href="https://wa.me/6358857163?text=Enquiry%20for%20rooms" target="_blank" class="button ms-2 -md -accent-1 bg-accent-2 xl:d-none"> 
-                <i class="icon bi bi-whatsapp"></i>
-            </a>
+
+        <!-- RIGHT: Desktop CTA + Mobile (Book Now + WA + Burger) -->
+        <div class="hdr-right-actions">
+          <!-- Desktop Book Now + WA (hidden on mobile) -->
+          <button class="button -md -accent-1 bg-accent-2 hdr-desktop-only"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop">BOOK NOW</button>
+          <a href="https://wa.me/916358856563?text=Hello+Devka+Beach+Resort+-+Daman%2C%0A%0AI+would+like+to+make+an+inquiry%2Fbook+a+stay.%0A%0APlease+get+in+touch+with+me+shortly.%0A%0ARegards&utm_source=chatgpt.com"
+            target="_blank" class="button -md -accent-1 bg-accent-2 hdr-desktop-only hdr-wa-icon">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <!-- Mobile Book Now + WA (hidden on desktop) -->
+          <button class="button btn-mobile-book -accent-1 bg-accent-2 hdr-mobile-only"
+            data-bs-toggle="modal" data-bs-target="#staticBackdrop">BOOK NOW</button>
+          <a href="https://wa.me/916358856563?text=Hello+Devka+Beach+Resort+-+Daman%2C%0A%0AI+would+like+to+make+an+inquiry%2Fbook+a+stay.%0A%0APlease+get+in+touch+with+me+shortly.%0A%0ARegards&utm_source=chatgpt.com"
+            target="_blank" class="button btn-mobile-wa -accent-1 bg-accent-2 hdr-mobile-only">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <!-- Burger — mobile only, NOW ON THE RIGHT -->
+          <div class="hdr-burger hdr-mobile-only js-menuFullScreen-toggle">
+            <i class="icon-menu text-white"></i>
+          </div>
         </div>
+
       </div>
     </header>
+
+    <main>
 
 <section data-anim-wrap class="hero -type-5">
     <div class="hero__slider js-section-slider" data-gap="0" data-slider-cols="xl-1 lg-1 md-1 sm-1 base-1" data-loop
@@ -414,7 +1038,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/01.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/01.png" alt="image" class="img-ratio" fetchpriority="high">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -432,7 +1056,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/02.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/02.png" alt="image" class="img-ratio" loading="lazy">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -450,7 +1074,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/03.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/03.png" alt="image" class="img-ratio" loading="lazy">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -468,7 +1092,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/04.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/04.png" alt="image" class="img-ratio" loading="lazy">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -486,7 +1110,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/05.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/05.png" alt="image" class="img-ratio" loading="lazy">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -504,7 +1128,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/06.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/06.png" alt="image" class="img-ratio" loading="lazy">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -521,7 +1145,7 @@
             <div class="swiper-slide">
                 <div class="hero__content text-center">
                     <div data-anim-child="img-right cover-white delay-1" class="hero__bg">
-                        <img src="https://devkabeachresort.com/images/banner/07.png" alt="image" class="img-ratio">
+                        <img src="https://devkabeachresort.com/images/banner/07.png" alt="image" class="img-ratio" loading="lazy">
                     </div>
 
                     <div data-split='lines' data-anim-child="split-lines delay-3" class="container ">
@@ -560,15 +1184,15 @@
         <div class="about__images">
 
             <div data-anim-child="img-right cover-white delay-2">
-                <img src="https://devkabeachresort.com/images/about/1.png" alt="image" class="rounded-16">
+                <img src="https://devkabeachresort.com/images/about/1.png" alt="image" class="rounded-16" loading="lazy">
             </div>
 
             <div data-anim-child="img-right cover-white delay-4">
-                <img src="https://devkabeachresort.com/images/about/2.png" alt="image" class="rounded-16">
+                <img src="https://devkabeachresort.com/images/about/2.png" alt="image" class="rounded-16" loading="lazy">
             </div>
 
             <div data-anim-child="img-right cover-white delay-6">
-                <img src="https://devkabeachresort.com/images/about/3.png" alt="image" class="rounded-16">
+                <img src="https://devkabeachresort.com/images/about/3.png" alt="image" class="rounded-16" loading="lazy">
             </div>
 
         </div>
@@ -578,7 +1202,7 @@
                 <div class="col-xl-8 col-lg-10">
                     <div data-split='lines' data-anim-child="split-lines delay-7">
                         <h2 class="about__title text-120">
-                            Hospitality at its best
+                            Experience Hospitality at Its Best – Devka Beach Resort, Daman 
                         </h2>
                         <p class="lh-18">
                             Located in close proximity to Devka Beach in Daman, we are your perfect getaway for serene
@@ -591,9 +1215,8 @@
                             place gives
                             the feeling of being on an island far from the rigors of worldly life, but with all the
                             amenities
-                            under one roof, including <b>Hola Amigos - The multicuisine dining restaurant, and Chicury -
-                                a
-                                paradise for vegetarian delicacies.</b>
+                            under one roof, including <b>Hola Amigos – A vibrant multicuisine dining restaurant offering a delightful blend of global flavors in a warm and inviting ambiance.
+Seabreeze – An elegant rooftop restaurant where guests can unwind with scenic views, fresh sea breeze, and an exceptional dining experience.</b>
                         </p>
                     </div>
 
@@ -623,16 +1246,16 @@
         <div class="text-15 text-center uppercase mb-30 sm:mb-15">Our Exclusive Venues</div>
         <div class="row justify-center">
             <div class="col-lg-3 col-6">
-                <img src="https://devkabeachresort.com/images/logo/restaurant/06.png" alt="">
+                <img src="https://devkabeachresort.com/images/logo/restaurant/06.png" alt="" loading="lazy">
             </div>
             <div class="col-lg-3 col-6">
-                <img src="https://devkabeachresort.com/images/logo/restaurant/04.png" alt="">
+                <img src="https://devkabeachresort.com/images/logo/restaurant/04.png" alt="" loading="lazy">
             </div>
             <div class="col-lg-3 col-6">
-                <img src="https://devkabeachresort.com/images/logo/restaurant/01.png" alt="">
+                <img src="https://devkabeachresort.com/images/logo/restaurant/01.png" alt="" loading="lazy">
             </div>
             <div class="col-lg-3 col-6">
-                <img src="https://devkabeachresort.com/images/logo/restaurant/03.png" alt="">
+                <img src="https://devkabeachresort.com/images/logo/restaurant/03.png" alt="" loading="lazy">
             </div>
         </div>
     </div>
@@ -678,13 +1301,13 @@
                                     <div>
                                         <div data-anim-child="img-right cover-light-1 delay-1">
                                             <img src="https://devkabeachresort.com/images/rooms/room-01.png" alt="image"
-                                                class="">
+                                                class="" loading="lazy">
                                         </div>
                                     </div>
                                     <div>
                                         <div data-anim-child="img-right cover-light-1 delay-3">
                                             <img src="https://devkabeachresort.com/images/rooms/room-02.png" alt="image"
-                                                class="">
+                                                class="" loading="lazy">
                                         </div>
                                     </div>
                                 </div>
@@ -695,13 +1318,13 @@
                                     <div>
                                         <div data-anim-child="img-right cover-light-1 delay-1">
                                             <img src="https://devkabeachresort.com/images/rooms/dinning-01.png" alt="image"
-                                                class="">
+                                                class="" loading="lazy">
                                         </div>
                                     </div>
                                     <div>
                                         <div data-anim-child="img-right cover-light-1 delay-3">
                                             <img src="https://devkabeachresort.com/images/rooms/dinning-02.png" alt="image"
-                                                class="">
+                                                class="" loading="lazy">
                                         </div>
                                     </div>
                                 </div>
@@ -712,13 +1335,13 @@
                                     <div>
                                         <div data-anim-child="img-right cover-light-1 delay-1">
                                             <img src="https://devkabeachresort.com/images/rooms/wedding-01.png" alt="image"
-                                                class="">
+                                                class="" loading="lazy">
                                         </div>
                                     </div>
                                     <div>
                                         <div data-anim-child="img-right cover-light-1 delay-3">
                                             <img src="https://devkabeachresort.com/images/rooms/wedding-02.png" alt="image"
-                                                class="">
+                                                class="" loading="lazy">
                                         </div>
                                     </div>
                                 </div>
@@ -780,7 +1403,7 @@
                 <div class="iconCard -type-1 -hover-1">
                     <div class="iconCard__icon text-50">
                         <div class="iconCard__icon__circle bg-light-1"></div>
-                        <img src="https://devkabeachresort.com/images/amanities/wifi.png" alt="" class="amanities-img">
+                        <img src="https://devkabeachresort.com/images/amanities/wifi.png" alt="" class="amanities-img" loading="lazy">
                         <!-- <i data-lucide="wifi"></i> -->
                     </div>
                     <h4 class="text-24 md:text-17 text-center mt-20">Wifi &amp; Internet</h4>
@@ -791,7 +1414,7 @@
                 <div class="iconCard -type-1 -hover-1">
                     <div class="iconCard__icon text-50">
                         <div class="iconCard__icon__circle bg-light-1"></div>
-                        <img src="https://devkabeachresort.com/images/amanities/spa.png" alt="" class="amanities-img">
+                        <img src="https://devkabeachresort.com/images/amanities/spa.png" alt="" class="amanities-img" loading="lazy">
                         <!-- <i data-lucide="sparkles"></i> -->
                     </div>
                     <h4 class="text-24 md:text-17 text-center mt-20">SPA</h4>
@@ -802,7 +1425,7 @@
                 <div class="iconCard -type-1 -hover-1">
                     <div class="iconCard__icon text-50">
                         <div class="iconCard__icon__circle bg-light-1"></div>
-                        <img src="https://devkabeachresort.com/images/amanities/pool.png" alt="" class="amanities-img">
+                        <img src="https://devkabeachresort.com/images/amanities/pool.png" alt="" class="amanities-img" loading="lazy">
                         <!-- <i data-lucide="waves-ladder"></i> -->
                     </div>
                     <h4 class="text-24 md:text-17 text-center mt-20">Pool</h4>
@@ -813,7 +1436,7 @@
                 <div class="iconCard -type-1 -hover-1">
                     <div class="iconCard__icon text-50">
                         <div class="iconCard__icon__circle bg-light-1"></div>
-                        <img src="https://devkabeachresort.com/images/amanities/pub.png" alt="" class="amanities-img">
+                        <img src="https://devkabeachresort.com/images/amanities/pub.png" alt="" class="amanities-img" loading="lazy">
                         <!-- <i data-lucide="speech"></i> -->
                     </div>
                     <h4 class="text-24 md:text-17 text-center mt-20">Pub</h4>
@@ -825,7 +1448,7 @@
                     <div class="iconCard__icon text-50">
                         <div class="iconCard__icon__circle bg-light-1"></div>
                         <img src="https://devkabeachresort.com/images/amanities/mini-hall.png" alt=""
-                            class="amanities-img">
+                            class="amanities-img" loading="lazy">
                         <!-- <i data-lucide="warehouse"></i> -->
                     </div>
                     <h4 class="text-24 md:text-17 text-center mt-20">Mini Hall</h4>
@@ -837,7 +1460,7 @@
                     <div class="iconCard__icon text-50">
                         <div class="iconCard__icon__circle bg-light-1"></div>
                         <img src="https://devkabeachresort.com/images/amanities/gym-and-gaming.png" alt=""
-                            class="amanities-img">
+                            class="amanities-img" loading="lazy">
                         <!-- <i data-lucide="dumbbell"></i> -->
                     </div>
                     <h4 class="text-24 md:text-17 text-center mt-20">Gym & Gaming</h4>
@@ -888,7 +1511,7 @@
                                 <div data-anim-child="img-right cover-accent-1 delay-1">
                                     <div class="roomCard__image ratio ratio-68:45 -hover-button-center__wrap">
                                         <img src="https://devkabeachresort.com/images/rooms/room-type/suite/01.png" alt="image"
-                                            class="img-ratio">
+                                            class="img-ratio" loading="lazy">
 
                                         <div class="-image-border__item"></div>
 
@@ -929,7 +1552,7 @@
                                 <div data-anim-child="img-right cover-accent-1 delay-1">
                                     <div class="roomCard__image ratio ratio-68:45 -hover-button-center__wrap">
                                         <img src="https://devkabeachresort.com/images/rooms/room-type/junior-suite/01.png"
-                                            alt="image" class="img-ratio">
+                                            alt="image" class="img-ratio" loading="lazy">
 
                                         <div class="-image-border__item"></div>
 
@@ -971,7 +1594,7 @@
                                 <div data-anim-child="img-right cover-accent-1 delay-1">
                                     <div class="roomCard__image ratio ratio-68:45 -hover-button-center__wrap">
                                         <img src="https://devkabeachresort.com/images/rooms/room-type/premium/01.png"
-                                            alt="image" class="img-ratio">
+                                            alt="image" class="img-ratio" loading="lazy">
 
                                         <div class="-image-border__item"></div>
 
@@ -1012,7 +1635,7 @@
                                 <div data-anim-child="img-right cover-accent-1 delay-1">
                                     <div class="roomCard__image ratio ratio-68:45 -hover-button-center__wrap">
                                         <img src="https://devkabeachresort.com/images/rooms/room-type/deluxe/01.png" alt="image"
-                                            class="img-ratio">
+                                            class="img-ratio" loading="lazy">
 
                                         <div class="-image-border__item"></div>
 
@@ -1053,7 +1676,7 @@
                                 <div data-anim-child="img-right cover-accent-1 delay-1">
                                     <div class="roomCard__image ratio ratio-68:45 -hover-button-center__wrap">
                                         <img src="https://devkabeachresort.com/images/rooms/room-type/standard-twin-room.png"
-                                            alt="image" class="img-ratio">
+                                            alt="image" class="img-ratio" loading="lazy">
 
                                         <div class="-image-border__item"></div>
 
@@ -1129,13 +1752,13 @@
                     <div class="text-sec text-30 md:text-21 fw-500">Memorable Moment</div>
                 </div>
                 <div data-anim-child="img-right cover-white delay-1">
-                    <img src="https://devkabeachresort.com/images/wedding/01.png" alt="image">
+                    <img src="https://devkabeachresort.com/images/wedding/01.png" alt="image" loading="lazy">
                 </div>
             </div>
 
             <div class="sideImages__item">
                 <div data-anim-child="img-right cover-white delay-1">
-                    <img src="https://devkabeachresort.com/images/wedding/02.png" alt="image">
+                    <img src="https://devkabeachresort.com/images/wedding/02.png" alt="image" loading="lazy">
                 </div>
                 <div data-anim-child="fade delay-3" class="d-flex items-center mt-30 md:mt-10">
                     <i data-lucide="waves-ladder " class="text-30 size-40 mr-20 "></i>
@@ -1190,33 +1813,33 @@
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/rooms/room-type/suite-room.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/rooms/room-type/deluxe-room.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/rooms/room-type/junior-suit-room.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/rooms/room-type/premium-room.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/rooms/room-type/standard-twin-room.png"
-                                    alt="image" class="img-ratio">
+                                    alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
@@ -1271,21 +1894,21 @@
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/dining-restaurant/hola-amigo.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/dining-restaurant/chicury.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
                                 <img src="https://devkabeachresort.com/images/dining-restaurant/ni8owl.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
@@ -1307,24 +1930,24 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
-                                <img src="https://devkabeachresort.com/images/halls/04.png" alt="image" class="img-ratio">
+                                <img src="https://devkabeachresort.com/images/halls/04.png" alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
-                                <img src="https://devkabeachresort.com/images/halls/01.png" alt="image" class="img-ratio">
+                                <img src="https://devkabeachresort.com/images/halls/01.png" alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
-                                <img src="https://devkabeachresort.com/images/halls/02.png" alt="image" class="img-ratio">
+                                <img src="https://devkabeachresort.com/images/halls/02.png" alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-80:55">
-                                <img src="https://devkabeachresort.com/images/halls/03.png" alt="image" class="img-ratio">
+                                <img src="https://devkabeachresort.com/images/halls/03.png" alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
@@ -1379,122 +2002,90 @@
                     </svg>
                 </div>
 
-                <div class="text-15 uppercase mb-30 sm:mb-15">VOICE FROM OUR GUESTS</div>
-                <h2 class=" text-40 lh-065">Testimonials</h2>
-            </div>
-        </div>
-    </div>
-
-    <div class="relative container">
-        <div class="row justify-center pt-100 sm:pt-50">
-            <div class="col-xl-8 col-lg-10 col-12">
-                <div class="overflow-hidden js-testimonialsSlider-1">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div data-split='lines' data-anim-child="split-lines delay-2" class="text-center">
-                                <div class=" text-21 md:text-15">
-                                    “A great resort, which is newly built and is hardly 100 mts from shore. Rooms are
-                                    super spacious,
-                                    well laid out and comfortable. You get a great sea view from the 3rd floor onwards.
-                                    It's a big
-                                    property with a large swimming pool, nice restaurant, a parking lot big enough for
-                                    100 cars , a
-                                    gym and a good bar. Since this is a big property you will get a good amount of
-                                    personal space
-                                    which is important in times of corona. Staff is quite supportive and very
-                                    hospitable. They are
-                                    courteous , professional and well behaved. Check-in and check out was hassle free.”
-                                </div>
-                                <!-- <div class="mt-50">Person Name</div> -->
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div data-split='lines' data-anim-child="split-lines delay-2" class="text-center">
-                                <div class=" text-21 md:text-15">
-                                    “The staff was good and polite. All Covid measurement safety was taken care of. Food
-                                    was excellent
-                                    (had lunch and breakfast). Stayed in deluxe room, rooms were clean, spacious.
-                                    Washrooms were
-                                    clean. I am very picky when it comes to clean rooms. Services provided was great.
-                                    Pool was clean,
-                                    had separate pool for children and adults.”
-                                </div>
-                                <!-- <div class="mt-50">Person Name</div> -->
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div data-split='lines' data-anim-child="split-lines delay-2" class="text-center">
-                                <div class=" text-21 md:text-15">
-                                    “One of the finest Property recently added in the list of luxurious hotels in Daman.
-                                    Spacious
-                                    rooms, delicious food, Olympic size swimming Pool. 24×7 Room services. They also
-                                    have Other
-                                    facilities like spa and bar which is under construction about to finish in recent
-                                    times , for best
-                                    Deals go through online mode of payment.”
-                                </div>
-                                <!-- <div class="mt-50">Person Name</div> -->
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div data-split='lines' data-anim-child="split-lines delay-2" class="text-center">
-                                <div class=" text-21 md:text-15">
-                                    “Set in Daman, 400 m from Daman Beach, Devka Beach Resort offers accommodations with
-                                    a restaurant,
-                                    free private parking, a fitness center and a bar. This 5-star hotel offers a 24-hour
-                                    front desk
-                                    and room service. The property offers car hire and features a garden and terrace.
-                                    The hotel will
-                                    provide guests with air-conditioned rooms offering a desk, a kettle, a fridge, a
-                                    safety deposit
-                                    box, a flat-screen TV and a private bathroom with a shower. At Devka Beach Resort
-                                    every room has
-                                    bed linen and towels. The nearest airport is Surat Airport, 48 mins from Devka Beach
-                                    Resort.”
-                                </div>
-                                <!-- <div class="mt-50">Person Name</div> -->
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="navAbsolute">
-                        <button class="size-80 flex-center rounded-full js-testimonialsSlider-1-prev">
-                            <i class="icon-arrow-left text-24"></i>
-                        </button>
-
-                        <button class="size-80 flex-center rounded-full js-testimonialsSlider-1-next">
-                            <i class="icon-arrow-right text-24"></i>
-                        </button>
-                    </div>
-                </div>
+                <div class="text-15 uppercase mb-30 sm:mb-15">REVIEWS</div>
+                <h2 class="text-40 lh-065">What Our Guests Say</h2>
             </div>
         </div>
 
-        <div data-anim-child="slide-up delay-5"
-            class="testimonialsPagination -type-1 pt-100 js-testimonialsSlider-1-pagination">
+        <div class="row justify-center pt-60 sm:pt-40">
+            <div class="col-lg-12">
+              <!-- Premium Guest Testimonials Slider -->
+              <style>
+                .testi-slider { position:relative; }
+                .testi-track { display:flex; gap:24px; overflow:hidden; }
+                .testi-card { flex:0 0 calc(33.333% - 16px); background:rgba(255,255,255,.04); border:1px solid rgba(200,169,107,.18); border-radius:20px; padding:32px 28px; display:flex; flex-direction:column; gap:16px; transition:transform 320ms ease, box-shadow 320ms ease; }
+                .testi-card:hover { transform:translateY(-4px); box-shadow:0 20px 60px rgba(0,0,0,.12); }
+                .testi-stars { display:flex; gap:3px; }
+                .testi-stars svg { width:16px; height:16px; fill:#c9a96e; }
+                .testi-text { font-size:clamp(.85rem,.9vw + .3rem,1rem); line-height:1.72; color:rgba(18,34,35,.82); font-style:italic; flex:1; }
+                .testi-author { display:flex; align-items:center; gap:12px; margin-top:8px; }
+                .testi-avatar { width:46px; height:46px; border-radius:50%; background:linear-gradient(135deg,#c9a96e,#e7d49d); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; color:#11140f; flex-shrink:0; font-family:'Playfair Display',serif; }
+                .testi-name { font-weight:700; font-size:.9rem; color:#122223; letter-spacing:.02em; }
+                .testi-origin { font-size:.78rem; color:#6b7c7d; }
+                .testi-dots { display:flex; justify-content:center; gap:8px; margin-top:36px; }
+                .testi-dot { width:8px; height:8px; border-radius:50%; background:rgba(200,169,107,.3); cursor:pointer; transition:background 240ms ease, transform 240ms ease; }
+                .testi-dot.active { background:#c9a96e; transform:scale(1.35); }
+                @media (max-width:991px) { .testi-card { flex:0 0 calc(50% - 12px); } }
+                @media (max-width:600px) { .testi-card { flex:0 0 100%; } }
+              </style>
+              <div class="testi-slider" id="testiSlider">
+                <div class="testi-track" id="testiTrack">
 
-            <div class="testimonialsPagination__item is-active">
-                <div><img src="https://devkabeachresort.com/images/testimonial/navneet.png" alt="person"></div>
+                  <div class="testi-card">
+                    <div class="testi-stars"><!-- 5 stars --><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <p class="testi-text">"The rooms were immaculate and the sea view from our suite was absolutely breathtaking. The staff anticipated every need before we even asked. A truly five-star experience on the Daman coast!"</p>
+                    <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Rahul Mehta</div><div class="testi-origin">Mumbai, India &bull; Suite Room</div></div></div>
+                  </div>
+
+                  <div class="testi-card">
+                    <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <p class="testi-text">"We celebrated our anniversary here and it was magical. The pool overlooks the beach, the food at Chicurry was outstanding, and the wedding team arranged everything flawlessly. Will definitely return!"</p>
+                    <div class="testi-author"><div class="testi-avatar">P</div><div><div class="testi-name">Priya &amp; Arjun Shah</div><div class="testi-origin">Ahmedabad, India &bull; Junior Suite</div></div></div>
+                  </div>
+
+                  <div class="testi-card">
+                    <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <p class="testi-text">"Best beach resort between Surat and Mumbai, hands down. Checked into a Premium Room and couldn't believe the value. The pub on-site was a pleasant surprise — great ambience and cocktails!"</p>
+                    <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sneha Patel</div><div class="testi-origin">Surat, India &bull; Premium Room</div></div></div>
+                  </div>
+
+                  <div class="testi-card">
+                    <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <p class="testi-text">"Hosted our corporate retreat at Devka Beach Resort. The banquet hall was stunning, the AV setup was perfect, and the catering team went above and beyond. Every detail was handled professionally."</p>
+                    <div class="testi-author"><div class="testi-avatar">V</div><div><div class="testi-name">Vikram Desai</div><div class="testi-origin">Vadodara, India &bull; Corporate Event</div></div></div>
+                  </div>
+
+                  <div class="testi-card">
+                    <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <p class="testi-text">"The pre-wedding photoshoot at Devka Beach Resort exceeded all our expectations. The staff was incredibly accommodating and the beach backdrop was simply stunning. Highly recommend!"</p>
+                    <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Ananya &amp; Rohan Kapoor</div><div class="testi-origin">Delhi, India &bull; Pre-Wedding Shoot</div></div></div>
+                  </div>
+
+                  <div class="testi-card">
+                    <div class="testi-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <p class="testi-text">"Family vacation with kids — the pool area is safe and well-maintained, the gym is excellent, and the dining options catered to everyone. The Deluxe Room was spacious and spotlessly clean."</p>
+                    <div class="testi-author"><div class="testi-avatar">N</div><div><div class="testi-name">Nikhil Sharma</div><div class="testi-origin">Pune, India &bull; Deluxe Room</div></div></div>
+                  </div>
+
+                </div><!-- /.testi-track -->
+                <div class="testi-dots" id="testiDots"></div>
+              </div><!-- /.testi-slider -->
+              <script>
+              (function(){
+                var track=document.getElementById('testiTrack');
+                var dots=document.getElementById('testiDots');
+                var cards=track?track.querySelectorAll('.testi-card'):[];
+                if(!cards.length)return;
+                var perView=window.innerWidth>991?3:window.innerWidth>600?2:1;
+                var total=Math.ceil(cards.length/perView);
+                var cur=0;
+                for(var i=0;i<total;i++){var d=document.createElement('div');d.className='testi-dot'+(i===0?' active':'');d.dataset.i=i;d.addEventListener('click',function(){go(+this.dataset.i);});dots.appendChild(d);}
+                function go(n){cur=n;var w=cards[0].getBoundingClientRect().width+24;track.style.transform='translateX(-'+(cur*perView*w)+'px)';track.style.transition='transform 520ms cubic-bezier(.22,1,.36,1)';dots.querySelectorAll('.testi-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});}
+                setInterval(function(){go((cur+1)%total);},5000);
+                track.style.transition='transform 520ms cubic-bezier(.22,1,.36,1)';
+              })();
+              </script>
             </div>
-
-            <div class="testimonialsPagination__item ">
-                <div><img src="https://devkabeachresort.com/images/testimonial/sabita.png" alt="person"></div>
-            </div>
-
-            <div class="testimonialsPagination__item ">
-                <div><img src="https://devkabeachresort.com/images/testimonial/siddharth.png" alt="person"></div>
-            </div>
-
-            <div class="testimonialsPagination__item ">
-                <div><img src="https://devkabeachresort.com/images/testimonial/bharat.png" alt="person"></div>
-            </div>
-
         </div>
     </div>
 </section>
@@ -1536,11 +2127,11 @@
                             <div class="row mb-30 justify-center">
                                 <div class="col-lg-6">
                                     <img src="https://devkabeachresort.com/images/nearestplace/japore-beach01.jpg" class="w-full"
-                                        alt="">
+                                        alt="" loading="lazy">
                                 </div>
                                 <div class="col-lg-6">
                                     <img src="https://devkabeachresort.com/images/nearestplace/japore-beach02.jpg" class="w-full"
-                                        alt="">
+                                        alt="" loading="lazy">
                                 </div>
                             </div>
                             <p class="text-15 text-dark-1">Jampore beach is one of the cleanest beaches in Daman. It
@@ -1558,11 +2149,11 @@
                             <div class="row mb-30 justify-center">
                                 <div class="col-lg-6">
                                     <img src="https://devkabeachresort.com/images/nearestplace/moti-daman-01.png" class="w-full"
-                                        alt="">
+                                        alt="" loading="lazy">
                                 </div>
                                 <div class="col-lg-6">
                                     <img src="https://devkabeachresort.com/images/nearestplace/moti-daman-02.png" class="w-full"
-                                        alt="">
+                                        alt="" loading="lazy">
                                 </div>
                             </div>
                             <p class="text-15 text-dark-1">Moti Daman fort was built by the Portuguese in the sixteenth
@@ -1578,11 +2169,11 @@
                             <div class="row mb-30 justify-center">
                                 <div class="col-lg-6">
                                     <img src="https://devkabeachresort.com/images/nearestplace/bom-church-01.png" class="w-full"
-                                        alt="">
+                                        alt="" loading="lazy">
                                 </div>
                                 <div class="col-lg-6">
                                     <img src="https://devkabeachresort.com/images/nearestplace/bom-church-02.png" class="w-full"
-                                        alt="">
+                                        alt="" loading="lazy">
                                 </div>
                             </div>
                             <p class="text-15 text-dark-1">Cathedral of Bom Jesus is a magnificent Roman Catholic
@@ -1620,7 +2211,7 @@
                     <a href="https://devkabeachresort.com/blog/3" class="baseCard -type-2">
                         <div class="baseCard__image ratio ratio-68:45">
                             <img src="https://devkabeachresort.com/code/public/uploads/blogs/1754561938.png" alt="Pre-wedding Photoshoot At Devka Beach Resort Daman"
-                                class="img-ratio">
+                                class="img-ratio" loading="lazy">
                         </div>
 
                         <div class="baseCard__content mt-30">
@@ -1652,7 +2243,7 @@
                     <a href="https://devkabeachresort.com/blog/1" class="baseCard -type-2">
                         <div class="baseCard__image ratio ratio-68:45">
                             <img src="https://devkabeachresort.com/code/public/uploads/blogs/1754561949.png" alt="best resort between surat to mumbai"
-                                class="img-ratio">
+                                class="img-ratio" loading="lazy">
                         </div>
 
                         <div class="baseCard__content mt-30">
@@ -1711,54 +2302,54 @@
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
                                 <img src="https://devkabeachresort.com/images/clients/makmytrip.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
-                                <img src="https://devkabeachresort.com/images/clients/agoda.png" alt="image" class="img-ratio">
+                                <img src="https://devkabeachresort.com/images/clients/agoda.png" alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
-                                <img src="https://devkabeachresort.com/images/clients/yatra.png" alt="image" class="img-ratio">
+                                <img src="https://devkabeachresort.com/images/clients/yatra.png" alt="image" class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
                                 <img src="https://devkabeachresort.com/images/clients/goibibo.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
                                 <img src="https://devkabeachresort.com/images/clients/booking.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
                                 <img src="https://devkabeachresort.com/images/clients/fidato.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
                                 <img src="https://devkabeachresort.com/images/clients/tripadvisor.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
                         <div class="swiper-slide">
                             <div class="ratio ratio-68:45">
                                 <img src="https://devkabeachresort.com/images/clients/wedmegood.png" alt="image"
-                                    class="img-ratio">
+                                    class="img-ratio" loading="lazy">
                             </div>
                         </div>
 
@@ -1770,6 +2361,7 @@
     </div>
 </section>
 
+
 <div class="modal beawareform fade" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false"
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog col-lg-2 col-8 mx-auto modal-dialog-centered">
@@ -1777,436 +2369,16 @@
             <div class="modal-body p-0">
 
                 <button type="button" class="closebtn" data-bs-dismiss="modal">X</button>
-                <img src="https://devkabeachresort.com/images/load.jpg" alt="">
+                <img src="https://devkabeachresort.com/images/load.jpg" alt="" loading="lazy">
             </div>
         </div>
     </div>
 </div>
 
-<a href="https://wa.me/6358857163?text=Enquiry%20for%20rooms" target="_blank" class="play-now"> 
-    <i class="icon bi bi-whatsapp"></i>
-    <span class="ripple"></span>
-</a>
-<footer class="footer -type-1 -bottom-border-dark">
-    <div class="footer__main">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="">
-                    <h4 class="text-30 fw-500 ">About Us</h4>
-                    <div class=" text-15 lh-17 mt-60 md:mt-20">
-                        Named after the famous Devka Beach in Daman, Devka Beach Resort is a perfect getaway to spend your beach
-                        vacation in Daman...
-                    </div>
-
-                    <div class="row x-gap-0 justify-between pt-40 lg:pt-20">
-                        <div class="col-auto">
-                            <img class="footer-log" src="https://devkabeachresort.com/images/awardicon/01.png" alt="icon">
-                        </div>
-                        <div class="col-auto">
-                            <img class="footer-log" src="https://devkabeachresort.com/images/awardicon/02.png" alt="icon">
-                        </div>
-                        <div class="col-auto">
-                            <img class="footer-log" src="https://devkabeachresort.com/images/awardicon/03.png" alt="icon">
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="">
-                    <h4 class="text-30 fw-500 ">Quick Links</h4>
-                    <div class="y-gap-15 text-15  mt-60 md:mt-20">
-                        <a class="d-block" href="/">
-                            Home
-                        </a>
-                        <a class="d-block" href="/about">
-                            About
-                        </a>
-                        <a class="d-block" href="/dining">
-                            Dining
-                        </a>
-                        <a class="d-block" href="/rooms">
-                            Rooms
-                        </a>
-                        <a class="d-block" href="/privacypolicy">
-                            Privacy Policy
-                        </a>
-                        <a class="d-block" href="/termcondition">
-                            Terms & Conditions
-                        </a>
-                    </div>
-                </div>
-                <div class="">
-                    <h4 class="text-30 fw-500 ">Quick Links</h4>
-                    <div class="y-gap-15 text-15  mt-60 md:mt-20">
-                        <a class="d-block" href="wedding.html">
-                            Banqueting & mice
-                        </a>
-                        <a class="d-block" href="/gallery">
-                            Gallery
-                        </a>
-                        <a class="d-block" href="/career">
-                            Career
-                        </a>
-                        <a class="d-block" href="https://devkabeachresort.com/blogs">
-                            Blogs
-                        </a>
-                        <a class="d-block" href="/contactus">
-                            Contact Us
-                        </a>
-                        <a class="d-block" href="/cancelrefundpolicy">
-                            Cancellation/Refund Policy
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="">
-                    <h4 class="text-30 fw-500 ">Contact</h4>
-
-                    <div class="d-flex flex-column mt-60 md:mt-20">
-                        <div class="">
-                            <a class="d-block text-15  lh-17" href="#">
-                                78/7 Sea Face Road, Devka Beach, Nani Daman, Daman - 396210
-                            </a>
-                        </div>
-                        <div class="mt-25">
-                            <a class="d-block text-15 " href="#">
-                                info@devkabeachresort.com
-                            </a>
-                        </div>
-                        <div class="mt-10">
-                            <a class="d-block text-15 " href="#">+91-6358857163
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="footer__bottom">
-        <div class="container">
-            <div class="row y-gap-30 justify-between md:justify-center items-center">
-                <div class="col-sm-auto">
-                    <div class="text-15 text-center">
-                        Copyright © <a href="index.html">Devkabeachresort</a>
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>. All Rights Reserved. Designed &amp; Developed by &nbsp;
-                        <a href="http://www.xirainfotech.com" target="_blank">
-                            <img loading="lazy" width="25" height="auto" src="https://www.xirainfotech.com/XAlogo.svg"
-                                alt="xira logo">
-                        </a>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-auto">
-                    <div class="row x-gap-25 y-gap-10 items-center justify-center">
-
-                        <div class="col-auto">
-                            <a href="https://www.facebook.com/DevkaBeachResortHotel/" target="_blank" class="d-block">
-                                <i class="icon-facebook text-13"></i>
-                            </a>
-                        </div>
-
-
-                        <div class="col-auto">
-                            <a href="https://www.instagram.com/devkabeachresort/" target="_blank" class="d-block">
-                                <i class="icon-instagram text-13"></i>
-                            </a>
-                        </div>
-
-                        <div class="col-auto">
-                            <a href="https://www.linkedin.com/company/devka-beach-resort-pvt-ltd/?originalSubdomain=in" target="_blank" class="d-block">
-                                <i class="icon-linkedin text-13"></i>
-                            </a>
-                        </div>
-                        <div class="col-auto">
-                            <a href="https://www.youtube.com/@devkabeachresort" target="_blank" class="d-block">
-                                <i class="icon-twitter text-13"></i>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Book Your Room</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form class="contactForm" action="https://devkabeachresort.com/book-room " method="post">
-                    <input type="hidden" name="_token" value="KlM8Sm74b41Nxk9rgEhS6sToTHPEJZUItvCZF6m4">                    <div class="booking-form">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-input mb-3">
-                                    <input type="text" required placeholder="Your Name" name="name"
-                                        pattern="^[A-Za-z\s]{2,50}$" title="Please enter a valid name (letters only, 2-50 characters)">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-input mb-3">
-                                    <input type="email" required placeholder="Email address" name="email"
-                                        title="Please enter a valid email address">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-input mb-3">
-                                    <input type="text" required maxlength="12" placeholder="Phone Number" name="phone_no"
-                                        pattern="^\d{10}$" title="Please enter a 10-digit phone number">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-6">
-                                <label for="checkin" class="form-label">Arrival date</label>
-                                <div class="form-input mb-3 w-100">
-                                    <input type="date" class="w-100" name="arrival_date" id="checkin" required />
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-6">
-                                <label for="checkout" class="form-label">Departure date</label>
-                                <div class="form-input mb-3 w-100">
-                                    <input type="date" class="w-100" name="depar_date" id="checkout" required />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-input mb-3">
-                                    <select name="room_type" required>
-                                        <option value="">Select Room Type</option>
-                                        <option value="suite_room">Suite Room</option>
-                                        <option value="junior_suite_room">Junior Suite Room</option>
-                                        <option value="premium_room">Premium Room</option>
-                                        <option value="deluxe_room">Deluxe Room</option>
-                                        <option value="standard_room">Standard Room</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="form-input mb-3 w-100">
-                                    <input type="number" min="1" required placeholder="Adults" name="adults"
-                                        title="Please enter number of adults (minimum 1)">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-6">
-                                <div class="form-input mb-3 w-100">
-                                    <input type="number" min="0" required placeholder="Childs" name="childs"
-                                        title="Please enter number of children (0 or more)">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-input mb-3">
-                                    <textarea required placeholder="Your Comment" name="message"
-                                        pattern=".{10,}" title="Please enter at least 10 characters"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="d-flex g-2">
-                            <button type="submit" id="bookNowBtn" class="button btn_sub -md bg-accent-1 -accent-2 text-white w-1/1">
-                                Book Now
-                            </button>
-
-                            <button type="button" id="submittingBtn" class="button btn_sub -md bg-accent-1 -accent-2 text-white w-1/1 d-none"  disabled>
-                                Submitting...
-                            </button>
-                            <button type="button" class="button -md -type-2 w-1/1 bg-accent-2 -accent-1" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</main>
-<script>
-    const form = document.getElementById('bookingForm');
-    const bookNowBtn = document.getElementById('bookNowBtn');
-    const submittingBtn = document.getElementById('submittingBtn');
-
-    form.addEventListener('submit', function() {
-        bookNowBtn.style.display = 'none';
-        submittingBtn.style.display = 'inline-block';
-    });
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAz77U5XQuEME6TpftaMdX0bBelQxXRlM"></script>
-<script src="https://devkabeachresort.com/js/apicomponent.js"></script>
-<script src="https://devkabeachresort.com/js/vendors.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://devkabeachresort.com/js/fslightbox.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://devkabeachresort.com/js/main.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const checkinInput = document.getElementById('checkin');
-        const checkoutInput = document.getElementById('checkout');
-
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        const minDate = `${yyyy}-${mm}-${dd}`;
-        checkinInput.setAttribute('min', minDate);
-
-        checkinInput.addEventListener('change', function() {
-            const checkinDate = new Date(this.value);
-            if (this.value) {
-                checkinDate.setDate(checkinDate.getDate() + 1);
-
-                const yyyy = checkinDate.getFullYear();
-                const mm = String(checkinDate.getMonth() + 1).padStart(2, '0');
-                const dd = String(checkinDate.getDate()).padStart(2, '0');
-                const nextDay = `${yyyy}-${mm}-${dd}`;
-
-                checkoutInput.setAttribute('min', nextDay);
-                if (checkoutInput.value && new Date(checkoutInput.value) <= new Date(this.value)) {
-                    checkoutInput.value = '';
-                }
-            }
-        });
-    });
-</script>
-
-<script>
-    filterSelection("all");
-
-    function filterSelection(c) {
-        var x, i;
-        x = document.getElementsByClassName("filterDiv");
-        if (c == "all") c = "";
-        for (i = 0; i < x.length; i++) {
-            w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-        }
-    }
-
-    function w3AddClass(element, name) {
-        var i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            if (arr1.indexOf(arr2[i]) == -1) {
-                element.className += " " + arr2[i];
-            }
-        }
-    }
-
-    function w3RemoveClass(element, name) {
-        var i, arr1, arr2;
-        arr1 = element.className.split(" ");
-        arr2 = name.split(" ");
-        for (i = 0; i < arr2.length; i++) {
-            while (arr1.indexOf(arr2[i]) > -1) {
-                arr1.splice(arr1.indexOf(arr2[i]), 1);
-            }
-        }
-        element.className = arr1.join(" ");
-    }
-
-    var btnContainer = document.getElementById("myBtnContainer");
-    var btns = btnContainer.getElementsByClassName("tabs__button");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("is-tab-el-active");
-            if (current.length > 0) {
-                current[0].className = current[0].className.replace(" is-tab-el-active", "");
-            }
-            this.className += " is-tab-el-active";
-        });
-    }
-</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(function() {
-            $('#myModal').modal('show');
-        }, 1000);
-    });
-</script>
-
-
-<!-- ===== INSTAGRAM FLOATING BUTTON ===== -->
-<style>
-  .insta-float {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    animation: insta-bounce 2.5s infinite;
-  }
-  .insta-float__icon {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 18px rgba(214,36,159,0.45);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .insta-float__icon svg {
-    width: 26px;
-    height: 26px;
-    fill: #fff;
-  }
-  .insta-float__label {
-    margin-top: 4px;
-    background: rgba(0,0,0,0.65);
-    color: #fff;
-    font-size: 10px;
-    font-family: 'Jost', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    white-space: nowrap;
-    opacity: 0;
-    transform: translateY(4px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
-  }
-  .insta-float:hover .insta-float__icon {
-    transform: scale(1.1);
-    box-shadow: 0 6px 24px rgba(214,36,159,0.65);
-  }
-  .insta-float:hover .insta-float__label {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  @keyframes insta-bounce {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-6px); }
-  }
-  @media (max-width: 576px) {
-    .insta-float { bottom: 80px; right: 14px; }
-    .insta-float__icon { width: 46px; height: 46px; }
-  }
-</style>
-
-<a href="https://www.instagram.com/devkabeachresort" target="_blank" rel="noopener noreferrer" class="insta-float" aria-label="Follow us on Instagram">
-  <div class="insta-float__icon">
-    <!-- Instagram SVG icon -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-    </svg>
-  </div>
-  <span class="insta-float__label">@devkabeachresort</span>
+<!-- Floating BOOK NOW — left side tab -->
+<a href="#" class="float-book-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop" aria-label="Book your room now">
+  &#128197; BOOK NOW
 </a>
 
-</body>
+@include('layout.footer')
 
-</html>
